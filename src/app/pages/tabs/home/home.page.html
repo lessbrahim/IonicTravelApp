@@ -1,0 +1,127 @@
+<!--ion-header class="ion-no-border ion-padding-horizontal">
+  <ion-toolbar color="light">
+    <ion-title mode="md">Salut!</ion-title>
+   
+    <ion-buttons slot="start">
+      <ion-avatar>
+        <ion-img src="assets/imgs/user1.png"></ion-img>
+      </ion-avatar>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header-->
+
+<ion-content color="light" class="ion-padding">
+
+  <ion-row>
+    <ion-col>
+      <ion-label class="big-heading">
+        <p class="ion-text-start">Où</p>
+        <p class="ion-text-start marginTop">veux-tu aller?</p>
+      </ion-label>
+    </ion-col>
+  </ion-row>
+  <!--ion-button expand="block" (click)="OpenModal()">Show Modal</ion-button-->
+  <ion-searchbar  (click)="OpenModal()" class="ion-margin-bottom" searchIcon="undefined" placeholder="Rechercher des lieux..." color="white" debounce="800">
+    <ion-fab-button size="small" color="white">
+      <ion-icon name="search-outline" color="primary" animated></ion-icon>
+    </ion-fab-button>
+  </ion-searchbar>
+
+  <!--ion-row class="ion-margin-top">
+    <ion-label class="ion-margin-start heading">Catégories</ion-label>
+    <swiper [config]="config" effect="fade">
+      <ng-template swiperSlide *ngFor="let category of categories">
+        <ion-card>
+          <ion-item lines="none">
+            <ion-thumbnail slot="start">
+              <img [src]="category?.image" />
+            </ion-thumbnail>
+            <ion-label class="ion-text-wrap">{{category?.name}}</ion-label>
+          </ion-item>
+        </ion-card>
+      </ng-template>
+    </swiper>
+  </ion-row-->
+
+  <ion-row class="ion-margin-top">
+    <ion-col size="15">
+      <ion-label class="ion-margin-start heading">
+        Les destinations les plus populaires au
+      </ion-label>
+      <br>
+      <ion-label class="ion-margin-start heading" color ="primary">
+         MAROC
+        <ion-icon name="chevron-down-outline"></ion-icon>
+      </ion-label>
+    </ion-col>
+    
+    <swiper [config]="config" effect="fade">
+      <ng-template swiperSlide *ngFor="let trip of trips">
+        <ion-card class="location-card">
+          <div [routerLink]="['/', 'tabs', 'trip', trip.id]">
+            <img [src]="trip?.image" />
+            <!--ion-chip class="ion-padding">
+              <ion-label color="white"> {{trip?.price}} DH</ion-label>
+            </ion-chip-->
+          </div>
+          <ion-item lines="none">            
+            <ion-label class="ion-text-wrap" [routerLink]="['/', 'tabs', 'trip', trip.id]">
+              <ion-text class="title">{{trip?.name}}</ion-text>
+              <!--p>
+                <ion-text color="medium">
+                  {{trip?.category}}
+                </ion-text>
+              </p-->
+            </ion-label>
+            <!--ion-fab-button size="small" slot="end" color="white">
+              <ion-icon name="heart-outline" color="medium"></ion-icon>
+            </ion-fab-button-->
+          </ion-item>
+        </ion-card>
+      </ng-template>
+    </swiper>
+  </ion-row>
+
+  <ion-row class="ion-margin-top">
+    <ion-col size="15">
+      <ion-label class="ion-margin-start heading">
+        Les destinations les plus populaires au
+      </ion-label>
+      <br>
+      <ion-label class="ion-margin-start heading" color ="primary">
+        MONDE
+        <ion-icon name="chevron-down-outline"></ion-icon>
+      </ion-label>
+    </ion-col>
+    
+    <swiper [config]="config1" effect="fade">
+      <ng-template swiperSlide *ngFor="let trip of trips2">
+        <ion-card class="location-card">
+          <div [routerLink]="['/', 'tabs', 'trip', trip.id]">
+            <img [src]="trip?.image" />
+            <!--ion-chip class="ion-padding">
+              <ion-label color="white"> {{trip?.price}} DH</ion-label>
+            </ion-chip-->
+          </div>
+          <ion-item lines="none">            
+            <ion-label class="ion-text-wrap" [routerLink]="['/', 'tabs', 'trip', trip.id]">
+              <ion-text class="title">{{trip?.name}}</ion-text>
+              <!--p>
+                <ion-text color="medium">
+                  {{trip?.category}}
+                </ion-text>
+              </p-->
+            </ion-label>
+            <!--ion-fab-button size="small" slot="end" color="white">
+              <ion-icon name="heart-outline" color="medium"></ion-icon>
+            </ion-fab-button-->
+          </ion-item>
+        </ion-card>
+      </ng-template>
+    </swiper>
+  </ion-row>
+
+ 
+
+
+</ion-content>

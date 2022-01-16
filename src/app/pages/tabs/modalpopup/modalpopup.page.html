@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Choisissez votre destination</ion-title>
+    <ion-buttons slot="end">
+      <ion-button  (click)="CloseModal()" color="primary" >Fermer</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-searchbar   
+    class="ion-margin-bottom" 
+    searchIcon="undefined"
+    [(ngModel)] ="searchTerm"
+    showCancelButton="focus"
+    animated
+    placeholder="Rechercher des lieux..."
+    color="white"
+    debounce="800">
+
+      <ion-fab-button size="small" color="white">
+        <ion-icon name="search-outline" color="primary" animated></ion-icon>
+      </ion-fab-button>
+  </ion-searchbar>
+  
+  <ion-list>
+    <ion-item> 
+      <ion-label color="primary "  >Liste des Pays </ion-label>
+      <ion-label color="primary ">Liste des Villes</ion-label>
+    </ion-item>
+    <ion-item *ngFor="let payss of listpays | filter:searchTerm"> 
+      <ion-label [routerLink]="['/', 'tabs', 'location',payss.id]" (click)="CloseModal()">{{ payss.pays }}</ion-label>
+      <ion-label [routerLink]="['/', 'tabs', 'location',payss.id]" (click)="CloseModal()">{{ payss.ville }}</ion-label>
+    </ion-item>
+    
+  </ion-list>
+</ion-content>
+<div></div>

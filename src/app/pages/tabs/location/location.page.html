@@ -1,0 +1,108 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Destination</ion-title>
+    <ion-buttons slot="end">
+      <ion-button  [routerLink]="['/', 'tabs', 'home']" color="primary" >Fermer</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="light" class="ion-padding">
+
+      <ion-row class="ion-margin-top">
+    <ion-label class="ion-margin-start heading" color ="primary">
+        Catégories
+        <ion-icon name="chevron-down-outline"></ion-icon>
+    </ion-label>
+    
+    <swiper [config]="config" effect="fade">
+      <ng-template swiperSlide *ngFor="let category of categories">
+        <ion-card>
+          <ion-item lines="none">
+            <!--ion-thumbnail slot="start">
+              <img [src]="category?.image" />
+            </ion-thumbnail-->
+            <ion-label class="ion-text-wrap" >{{category?.name}}</ion-label>
+          </ion-item>
+        </ion-card>
+      </ng-template>
+    </swiper>
+  </ion-row>
+
+  <ion-row class="ion-margin-top">
+    <ion-col size="15">
+      <ion-label class="ion-margin-start heading" color ="primary">
+        les monuments touristiques 
+        <ion-icon name="chevron-down-outline"></ion-icon>
+      </ion-label>
+     </ion-col>
+    
+    <swiper [config]="config" effect="fade">
+      <ng-template swiperSlide *ngFor="let distination of distinations">
+        
+          
+        <ion-card class="location-card">
+          <div [routerLink]="['/', 'tabs', 'location', distination.id]">
+            <img [src]="distination?.image" />
+            <ion-chip class="ion-padding">
+              <ion-label color="white"> {{distination?.price}} DH</ion-label>
+            </ion-chip>
+          </div>
+          <ion-item lines="none">            
+            <ion-label class="ion-text-wrap" [routerLink]="['/', 'tabs', 'location', distination.id]">
+              <ion-text class="title">{{distination?.name}}</ion-text>
+              <p>
+                <ion-text color="medium">
+                  {{distination?.category}}
+                </ion-text>
+              </p>
+            </ion-label>
+            <ion-fab-button size="small" slot="end" color="white">
+              <ion-icon name="heart-outline" color="medium"></ion-icon>
+            </ion-fab-button>
+          </ion-item>
+        </ion-card>
+      
+     
+      </ng-template>
+    </swiper>
+  </ion-row>
+
+  <ion-row class="ion-margin-top">
+    <ion-col size="15">
+      <ion-label class="ion-margin-start heading" color ="primary">
+        les circuits touristiques
+        <ion-icon name="chevron-down-outline"></ion-icon>
+      </ion-label>
+      </ion-col>
+    
+    <swiper [config]="config1" effect="fade">
+      <ng-template swiperSlide *ngFor="let distination of distinations">
+        <ion-card class="location-card">
+          <div [routerLink]="['/', 'tabs', 'location', distination.id]">
+            <img [src]="distination?.image" />
+            <ion-chip class="ion-padding">
+              <ion-label color="white"> {{distination?.price}} DH</ion-label>
+            </ion-chip>
+          </div>
+          <ion-item lines="none">            
+            <ion-label class="ion-text-wrap" [routerLink]="['/', 'tabs', 'location', distination.id]">
+              <ion-text class="title">{{distination?.name}}</ion-text>
+              <p>
+                <ion-text color="medium">
+                  {{distination?.category}}
+                </ion-text>
+              </p>
+            </ion-label>
+            <ion-fab-button size="small" slot="end" color="white">
+              <ion-icon name="heart-outline" color="medium"></ion-icon>
+            </ion-fab-button>
+          </ion-item>
+        </ion-card>
+      </ng-template>
+    </swiper>
+  </ion-row>
+
+ 
+
+
+</ion-content>
