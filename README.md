@@ -1,8 +1,5 @@
 # IonicTravelApp
- Groupe : 
-  *SAFI NOUHAILA  
-  *SAFIH HICHAM OUSSAMA
-  *LESS BRAHIM
+ Groupe :  *SAFI NOUHAILA   *SAFIH HICHAM OUSSAMA   *LESS BRAHIM
  
 ![1](https://user-images.githubusercontent.com/61845266/149667025-77bac043-2b4b-40fe-a2a7-a8da4cf422af.png)
 
